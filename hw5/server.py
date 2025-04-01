@@ -21,7 +21,7 @@ while True:
         c.send(b'HTTP/1.1 200 OK\r\n')
         c.send(b'Content-Type: text/html\r\n')
         c.send(b'\r\n')
-        c.send(content.encode())
+        c.send(content.encode('euc-kr'))
     elif method == 'GET' and route == '/favicon.ico':
         with open('favicon.ico', 'rb') as f:
             content = f.read()

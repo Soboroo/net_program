@@ -5,6 +5,10 @@ addr = ('localhost', 9000)
 sock.connect(addr)
 msg = sock.recv(1024)
 print(msg.decode())
-sock.send('Yeongyun Woo'.encode())
-print(int.from_bytes(sock.recv(1024), byteorder='big', signed=False))
+while True:
+    opr = input('Enter some expression: ')
+    if opr == 'q':
+        break
+    sock.send(opr.encode())
+    print(sock.recv(1024).decode())
 sock.close()

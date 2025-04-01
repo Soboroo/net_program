@@ -6,8 +6,7 @@ s.listen(2)
 
 while True:
     client, addr = s.accept()
-    print('Connected from', addr)
+    print('Connection from ', addr)
     client.send(b'Hello ' + addr[0].encode())
     print(client.recv(1024).decode())
-    client.send((20201517).to_bytes(4, byteorder='big'))
-    client.close()
+    client.send((20201517).to_bytes(4, byteorder='big', signed=False))
